@@ -1,16 +1,17 @@
 {
   "name": "vscode-daily-notes",
-	"displayName": "vscode-daily-notes",
+	"displayName": "Daily Notes",
 	"description": "Daily notes with calendar view",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.62.0"
+		"vscode": "^1.57.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:vscode-daily-notes.helloWorld"
+        "onCommand:vscode-daily-notes.helloWorld",
+		"onView:calendarView"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -19,7 +20,30 @@
 				"command": "vscode-daily-notes.helloWorld",
 				"title": "Hello World"
 			}
-		]
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "daily-notes",
+					"title": "Daily Notes",
+					"icon": "media/calendar.svg"
+				}
+			]
+		},
+		"views": {
+			"daily-notes": [
+				{
+					"id": "calendarView",
+					"name": "Calendar",
+					"icon": "media/calendar.svg",
+					"contextualTitle": "Calendar View"
+				},
+				{
+					"id": "notes",
+					"name": "Daily Notes"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -30,7 +54,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.62.0",
+		"@types/vscode": "^1.52.0",
 		"@types/glob": "^7.1.4",
 		"@types/mocha": "^9.0.0",
 		"@types/node": "14.x",
