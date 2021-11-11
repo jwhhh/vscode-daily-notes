@@ -1,24 +1,29 @@
 {
-  "name": "vscode-daily-notes",
+  	"name": "vscode-daily-notes",
 	"displayName": "Daily Notes",
 	"description": "Daily notes with calendar view",
 	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jwhhh/vscode-daily-notes"
+	},
 	"engines": {
-		"vscode": "^1.57.0"
+		"vscode": "^1.50.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:vscode-daily-notes.helloWorld",
+        "onCommand:dailyNotes.today",
 		"onView:calendarView"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-daily-notes.helloWorld",
-				"title": "Hello World"
+				"command": "vscode-daily-notes.today",
+				"title": "Today's Notes"
 			}
 		],
 		"viewsContainers": {
@@ -33,9 +38,9 @@
 		"views": {
 			"daily-notes": [
 				{
-					"id": "calendarView",
+					"type": "webview",
+					"id": "dailyNotes.calendarView",
 					"name": "Calendar",
-					"icon": "media/calendar.svg",
 					"contextualTitle": "Calendar View"
 				},
 				{
